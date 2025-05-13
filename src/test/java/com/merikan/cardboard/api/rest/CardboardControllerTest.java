@@ -70,7 +70,7 @@ public class CardboardControllerTest {
             .when()
                 .post("/api/cardboard/match")
             .then()
-                .statusCode(HttpStatus.EXPECTATION_FAILED.value())
+                .statusCode(HttpStatus.BAD_REQUEST.value())
                 .body(containsString("Upphämtning krävs"));
         }
 

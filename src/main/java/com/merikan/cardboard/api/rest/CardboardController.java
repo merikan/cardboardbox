@@ -29,7 +29,7 @@ public class CardboardController {
     public ResponseEntity<String> match(@RequestBody List<Item> items) {
         Cardboard box = service.findMatchingCardboardBox(items);
         if (Objects.isNull(box)) {
-            return new ResponseEntity<>("Upphämtning krävs", new HttpHeaders(), HttpStatus.EXPECTATION_FAILED);
+            return new ResponseEntity<>("Upphämtning krävs", new HttpHeaders(), HttpStatus.BAD_REQUEST);
             // throw new NoMatchException("Upphämtning krävs");
         }
         return new ResponseEntity<>(box.getId().toString(), new HttpHeaders(), HttpStatus.OK);
